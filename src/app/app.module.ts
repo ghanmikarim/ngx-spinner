@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { NgxSpinnerModule } from './ngx-spinner/ngx-spinner.module';
 
 
 @NgModule({
@@ -10,9 +11,9 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgxSpinnerModule.forRoot()
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
