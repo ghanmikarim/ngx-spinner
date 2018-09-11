@@ -1,7 +1,7 @@
 import { Component, OnDestroy, Input, OnInit, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { NgxSpinnerService } from './ngx-spinner.service';
 import { Subscription } from 'rxjs/Subscription';
-import { LOADERS } from './loader.layout';
+import { LOADERS, LOADING_TEXT } from './loader.layout';
 
 @Component({
   selector: 'app-ngx-spinner',
@@ -85,8 +85,9 @@ export class NgxSpinnerComponent implements OnDestroy, OnInit, OnChanges {
    * @memberof NgxSpinnerComponent
    */
   constructor(private spinnerService: NgxSpinnerService) {
-    this.spinnerSubscription = this.spinnerService.spinnerObservable.subscribe(flag => {
-      this.showSpinner = flag;
+    this.spinnerSubscription = this.spinnerService.spinnerObservable.subscribe(loadingSpinner => {
+      this.showSpinner = loadingSpinner.showSpinner;
+      this.loadingText = LOADING_TEXT[loadingSpinner.loadingText];
     });
   }
 

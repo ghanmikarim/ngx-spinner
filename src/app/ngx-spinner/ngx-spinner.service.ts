@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { LoadingSpinner } from './loading.spinner.model';
 
 @Injectable()
 export class NgxSpinnerService {
@@ -8,7 +9,7 @@ export class NgxSpinnerService {
      *
      * @memberof NgxSpinnerService
      */
-    public spinnerObservable = new Subject<boolean>();
+    public spinnerObservable = new Subject<LoadingSpinner>();
     /**
      * Creates an instance of NgxSpinnerService.
      * @memberof NgxSpinnerService
@@ -21,7 +22,7 @@ export class NgxSpinnerService {
      * @memberof NgxSpinnerService
      */
     show() {
-        this.spinnerObservable.next(true);
+        this.spinnerObservable.next(new LoadingSpinner().show);
     }
 
     /**
@@ -30,6 +31,6 @@ export class NgxSpinnerService {
      * @memberof NgxSpinnerService
      */
     hide() {
-        this.spinnerObservable.next(false);
+        this.spinnerObservable.next(new LoadingSpinner().hide);
     }
 }

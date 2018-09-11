@@ -53,3 +53,8 @@ export const LOADERS = {
     'timer': 1,
     'triangle-skew-spin': 1
 };
+
+
+export const LOADING_TEXT = {
+    'STANDARD' : 'Traitement en cours...'
+};
